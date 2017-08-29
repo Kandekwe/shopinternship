@@ -4,7 +4,7 @@
 <head>
 <style>
 body {
-    background-color: lightblue;
+    background-color: TEAL ;
 }
 </style>
 </head>
@@ -14,24 +14,34 @@ body {
 </body>
 </html>
 <?php foreach ($shop as $product): ?>
-
+ 
     <p><br><b><?= $product->Nameshop ?> <b></p>
+            <div class="container">
+            <div class ="row">
     <?php foreach ($product ->getItems() as $items): ?>
    
-    <ul>
-    <div class="container">
-      <div class ="row">
-         <div class = "col-md-2">  
-        <li> <hr><img src="https://image.spreadshirtmedia.com/image-server/v1/productTypes/1130/views/1/appearances/565,width=150,height=150,backgroundColor=ffffff.jpg" alt="google.com"> <?= $items->category?> </li>
-        </div>
-         <div class = "col">
-        <?= $items->itemname?> 
-        </div>
-        <div class = "col">
-        <?= $items->itemprice?>
-        </div>
-    </ul>
+             <div class="col-md-4">
+             <ul>          
+                  <hr><img src="https://image.spreadshirtmedia.com/image-server/v1/productTypes/1130/views/1/appearances/565,width=150,height=150,backgroundColor=ffffff.jpg" alt="google.com"> 
+                  <?= $items->category?>
+                  <?= $items->itemname?> 
+                  <?= $items->itemprice?> 
+
+                    <p><form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <!-- Display the payment button. -->
+                    <input type="image" name="submit"
+                    src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_addtocart_120x26.png"
+                    alt="Add to Cart">
+                    <img alt="" width="1" height="1"
+                    src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+                   </form></p>
+                 </ul>
+              </div>
   
-    <?php endforeach; ?>
-<?php endforeach; ?>
+       <?php endforeach; ?>
+    </div>
+
+  <?php endforeach; ?>
+</div> 
+
 
